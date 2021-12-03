@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Assignment 2 Qn 2</title>
+   <script>
+      function validate() {
+         let x = document.getElementById("roll").value;
+         var num = /^[0-9]+$/;
+         if (!x.match(num))
+            alert("The roll number must be of numeric value!");
+         else if (x.toString().length != 7)
+            alert("The length of roll no. must be greater than 7!!!");
+         else
+            alert("Valid!");
+      }
+   </script>
+</head>
+
+<body style="text-align: center;">
+   <h2>Student Registration form</h2>
+   <form action="">
+      <label for="name">Enter your name:</label>
+      <input type="text" name="name" id="name" placeholder="Your name..."><br><br>
+      <label for="roll">Enter your Roll Number:</label>
+      <input type="text" name="roll" id="roll" placeholder="Your roll number..."><br><br>
+      <label for="course">Enter the courses you attend:</label>
+      <input type="text" name="course" id="course" placeholder="Your courses..."
+         style="width: 50ch; height: 10ch;"><br><br>
+      <input type="submit" onclick="validate()" placeholder="Submit">
+   </form>
+</body>
+
+</html>

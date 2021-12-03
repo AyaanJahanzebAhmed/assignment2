@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset=utf-8 />
+  <title>assignment_2(1)</title> 
+</head>
+  <body>
+    <link rel="stylesheet" type="text/css" href="assignment_2(1).css">
+  <textarea id="InputText" cols="30" rows="4">This is a function used to create age validation. A person who is below 18 years will be 
+    restricted and the people above 18 years will be allowed. The form shows a pop-up after entering the user's date of birth, showing 
+    his or her eligibility.</textarea>
+  <br>
+  <input type="button" name="Convert" value="No. of Words" onClick="count_words();">
+  <input id = "noofwords" type="text" value="" size="6"> 
+  <script>
+  function count_words()
+{
+str1= document.getElementById("InputText").value;
+//exclude  start and end white-space
+str1 = str1.replace(/(^\s*)|(\s*$)/gi,"");
+//convert 2 or more spaces to 1  
+str1 = str1.replace(/[ ]{2,}/gi," ");
+// exclude newline with a start spacing  
+str1 = str1.replace(/\n /,"\n");
+document.getElementById("noofwords").value = str1.split(' ').length;
+}
+  function getAge() {
+  var dateString = document.getElementById("date").value;
+  if(dateString !="")
+  {
+      var today = new Date();
+      var birthDate = new Date(dateString);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var m = today.getMonth() - birthDate.getMonth();
+      var da = today.getDate() - birthDate.getDate();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+      if(m<0){
+          m +=12;
+      }
+      if(da<0){
+          da +=30;
+      }
+  
+    if(age < 18 || age > 100)
+  {
+  alert("Age "+age+" is restricted");
+  
+  } else {
+  
+  alert("Age "+age+" is allowed");
+  }
+  } else {
+  alert("please provide your date of birth");
+  }
+  }
+  
+  
+  </script>
+  <input type="text" id="date" onblur="getAge()">
+  </body>
+  </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2 Qn 3</title>
+    <script>
+        var looper;
+        var degrees = 0;
+        speed = 200;
+        function faster() {
+            speed = speed - 50;
+            rotateAnimation(el);
+        }
+        function slower() {
+            speed = speed + 50;
+            rotateAnimation(el);
+        }
+        function rotateAnimation(el) {
+            var elem = document.getElementById(el);
+            elem.style.transform = "rotate(" + degrees + "deg)";
+            looper = setTimeout('rotateAnimation(\'' + el + '\',' + speed + ')', speed);
+            degrees++;
+            if (degrees > 359) {
+                degree = 1;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <img src="C:\Users\Adith Shivakumar\OneDrive\Pictures\Assignment\line.png" alt="line" id="line" style="height: 100px;"><br><br>
+    <script>rotateAnimation("line");</script>
+    <button type="button" name="fast" id="fast" onclick="faster()" style="font-size: 14px;">Fast</button>
+    <button type="button" name="slow" id="slow" onclick="slower()" style="font-size: 14px;">Slow</button>
+</body>
+
+</html>
